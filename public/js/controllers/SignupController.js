@@ -1,4 +1,4 @@
-app.controller('SignupController', function($scope, $http, $location) {
+app.controller('SignupController', function($scope, $http, $window) {
 
   // booleans to show/hide alerts
   $scope.submitted = false;
@@ -31,8 +31,8 @@ app.controller('SignupController', function($scope, $http, $location) {
     $http.post("/api/signup", user)
     .success(function (data, status) {
       console.log('Successful signup.');
-      // if successfull, redirect to /
-      $location.path("/");
+      // if successfull, redirect to / with full page reload
+      $window.location.href = "/";
     })
     .error(function (data) {
       console.log('Error: ' + data);

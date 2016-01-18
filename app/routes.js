@@ -1,4 +1,4 @@
-// TODO change the Thing name here and in the models folder to follow the name of Object you are creating
+// TODO change the Thing name here and in the models folder to follow the name Object you are creating
 var Thing = require('./models/thing');  // load the thing mongoose model - change as needed
 var User = require('./models/user');  // load the User mongoose model for passport.js authentication
 
