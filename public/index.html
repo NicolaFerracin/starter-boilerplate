@@ -40,12 +40,12 @@
 				</ul>
 				<!-- right navbar login and signup and logout -->
 				<ul class="nav navbar-nav navbar-right">
-					<p class="navbar-btn" ng-hide="user.isLoggedIn">
+					<p class="navbar-btn" ng-hide="userLoggedIn">
 						<a href="/login" class="btn btn-primary">Login</a>
 						<a href="/signup" class="btn btn-default">Sign Up</a>
 					</p>
-					<p class="navbar-btn" ng-show="user.isLoggedIn">
-						Welcome, {{user.email}}!
+					<p class="navbar-btn" ng-show="userLoggedIn">
+						Welcome, {{email}}!
 						<a ng-click="logout()" class="btn btn-danger">Logout</a>
 					</p>
 				</ul>

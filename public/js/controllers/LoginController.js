@@ -1,4 +1,4 @@
-app.controller('LoginController', ['$scope', '$http', '$window', function($scope, $http, $window) {
+app.controller('LoginController', function($scope, $http, $location) {
 
   // booleans to show/hide alerts
   $scope.submitted = false;
@@ -27,7 +27,7 @@ app.controller('LoginController', ['$scope', '$http', '$window', function($scope
     .success(function (data, status) {
       console.log('Successful login.');
       // if successfull redirect to /
-      $window.location.href = '/';
+      $location.path("/");
     })
     .error(function (data) {
       console.log('Error: ' + data);
@@ -35,4 +35,4 @@ app.controller('LoginController', ['$scope', '$http', '$window', function($scope
       $scope.errorAlert = data[0];
     });
   };
-}]);
+});

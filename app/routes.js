@@ -1,3 +1,4 @@
+// TODO change the Thing name here and in the models folder to follow the name of Object you are creating
 var Thing = require('./models/thing');  // load the thing mongoose model - change as needed
 var User = require('./models/user');  // load the User mongoose model for passport.js authentication
 
@@ -112,22 +113,20 @@ module.exports = function(app, passport) {
 			if (user === false) {
 				res.status(401).send(req.flash('signupMessage'));
 			} else {
-				res.status(200).send("success!");
+				req.login(user, function(err) {
+					if (err) {
+						res.status(500).send("There has been an error");
+					} else {
+						res.status(200).send("success!");
+					}
+				});
 			}
 		})(req, res, next);
 	});
 
 	// check if the user is logged in an retrieve a different user obj based on the status
 	app.get('/loggedin', function(req, res) {
-		var user = {};
-		if (req.isAuthenticated()) {
-			user.isLoggedIn = true;
-			user.email = req.user.local.email;
-		} else {
-			user.isLoggedIn = false;
-			user.email = undefined;
-		}
-		res.json(user);
+		res.json(isLoggedIn(req));
 	});
 
 	// log the user out and redirect to /
@@ -135,4 +134,14 @@ module.exports = function(app, passport) {
 		req.logout();
 		res.redirect('/');
 	});
+
+	isLoggedIn = function(req) {
+		if (req.isAuthenticated()) {
+			var user = JSON.parse(JSON.stringify(req.user));
+			// hide sensible information
+			delete user.local.password;
+			return user;
+		}
+		return null;
+	}
 };

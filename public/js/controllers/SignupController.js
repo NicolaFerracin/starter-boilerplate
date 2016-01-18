@@ -1,4 +1,4 @@
-app.controller('SignupController', ['$scope', '$http', '$window', function($scope, $http, $window) {
+app.controller('SignupController', function($scope, $http, $location) {
 
   // booleans to show/hide alerts
   $scope.submitted = false;
@@ -32,7 +32,7 @@ app.controller('SignupController', ['$scope', '$http', '$window', function($scop
     .success(function (data, status) {
       console.log('Successful signup.');
       // if successfull, redirect to /
-      $window.location.href = '/';
+      $location.path("/");
     })
     .error(function (data) {
       console.log('Error: ' + data);
@@ -46,4 +46,4 @@ app.controller('SignupController', ['$scope', '$http', '$window', function($scop
     $scope.showPasswordAlert = false;
     $scope.showErrorAlert = false;
   }
-}]);
+});
