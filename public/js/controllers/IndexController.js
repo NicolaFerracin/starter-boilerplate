@@ -4,11 +4,9 @@ app.controller('IndexController', function($scope, $http, loggedIn, $location) {
   // check if user logged in and set userLoggedIn boolean
   loggedIn.getUser().then(
     function(payload) {
-      console.log("here")
       if (payload.data) {
         $scope.userLoggedIn = true;
         $scope.email = payload.data.local.email;
-        console.log($scope.email)
       } else {
         console.log("The user is logged out")
       }
