@@ -1,8 +1,6 @@
 // thing mongoose Schema - needs to be populated or removed
 var mongoose = require('mongoose');
 
-var thingInsideThing = {
-};
-
+// TODO set the Thing object schema
 module.exports = mongoose.model('Thing', {
 });

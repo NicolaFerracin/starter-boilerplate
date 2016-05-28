@@ -23,7 +23,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse applica
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(session({
-    secret: 'imsuperman',
+    secret: 'supersecretsecret',
     proxy: true,
     resave: true,
     saveUninitialized: true

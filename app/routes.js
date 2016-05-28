@@ -4,7 +4,7 @@ var User = require('./models/user');  // load the User mongoose model for passpo
 
 module.exports = function(app, passport) {
 	// api ---------------------------------------------------------------------
-	// create thing
+	// create Thing
 	app.post('/api/things', function(req, res) {
 		Thing.create({
 			// TODO populate the obj
@@ -16,7 +16,7 @@ module.exports = function(app, passport) {
 		});
 	});
 
-	// get all things
+	// get all Things
 	app.get('/api/things', function(req, res) {
 		// use mongoose to get all things from the db
 		Thing.find(function(err, things) {
