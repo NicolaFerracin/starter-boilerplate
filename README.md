@@ -24,7 +24,8 @@ The Starter Boilerplate has been developed using the MEAN stack:
 3. Start the server with "node server.js"
 4. Open your browser and go [here](http://localhost:8080) to see it live
 5. Edit the files, save, restart the server and make it yours!
- *TIP*: install nodemon to make the server restart automatically with any code change
+
+*TIP*: install nodemon to make the server restart automatically with any code change
 
 ##Deploy to Heroku
 1. Create an account on [Heroku](https://signup.heroku.com/login)
